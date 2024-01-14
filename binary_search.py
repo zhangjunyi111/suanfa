@@ -11,11 +11,11 @@ def binary_search_(array: List, target: int) -> any:
     mid = left + (right-left)//2
     while left <= right:
         if arr[mid] == target:
-            right = mid
-        elif arr[mid] < target:
-            left = mid
-        elif arr[mid] > target:
             return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        elif arr[mid] > target:
+            right = mid - 1
         mid = left + (right-left) // 2
     return -1
 
@@ -32,6 +32,6 @@ if __name__ == '__main__':
     ordered_arrays = get_ordered_arrays()
     # 输出每个有序数组
     for i, arr in enumerate(ordered_arrays, start=1):
-        print(binary_search_(arr, 7))
+        print(binary_search_(arr, 19))
         # print(binary_search_(arr, 8))
         # print(binary_search_(arr, 15))
