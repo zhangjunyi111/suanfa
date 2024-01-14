@@ -8,7 +8,7 @@ from typing import List
 
 def binary_search_(array: List, target: int) -> any:
     left, right = 0, len(array)-1
-    mid = left + (left + right)//2
+    mid = left + (right-left)//2
     while left <= right:
         if arr[mid] == target:
             right = mid
