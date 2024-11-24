@@ -8,20 +8,17 @@ def bfs(launches_start_time, dq):
     visited = [False] * launches_total_number
     while dq:
         start_time, launche_num = dq.popleft()
-        if not visited[launche_num]:
-            visited[launche_num] = True
-            neighbers = [(launche_num - 1) % launches_total_number, (launche_num
-                                                                     + 1) % launches_total_number]
+        visited[launche_num] = True
+        neighbers = [(launche_num - 1) % launches_total_number, (launche_num
+                                                                 + 1) % launches_total_number]
 
         # 更新启动时间
-            for neighber in neighbers:
-                if not visited[neighber]:
-                    if launches_start_time[neighber] > start_time + 1:
-                        launches_start_time[neighber] = start_time + 1
-                    dq.append((start_time + 1, neighber))
+        for neighber in neighbers:
+            if launches_start_time[neighber] > start_time + 1:
+                launches_start_time[neighber] = start_time + 1
+                dq.append((start_time + 1, neighber))
 
-        else:
-            continue
+
 
     # 遍历启动时刻表，找到最大的启动时间，输出该时间的列表
 
