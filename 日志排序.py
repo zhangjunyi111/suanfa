@@ -16,9 +16,11 @@ def main():
             element = element.strip('0')
             tmp_new.append(element)
         logs_has_processed.append((tmp_new, i))
-        logs_has_processed.sort(key=lambda x: (int(x[0][0]), int(x[0][1]),
-                                               int(x[0][2]), int(x[0][3]) if
-                                               x[0][3] else 0))
+    logs_has_processed.sort(key=lambda x: (int(x[0][0]) if int(x[0][0]) else
+                                           0,
+                                           int(x[0][1]) if int(x[0][1]) else 0,
+                                           int(x[0][2]) if int(x[0][2]) else 0,
+                                           int(x[0][3]) if x[0][3] else 0))
     print_sequence = [i[1] for i in logs_has_processed]
     # 输出
     # 输出的时候按照print_sequence顺序输出
