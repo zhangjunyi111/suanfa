@@ -20,6 +20,7 @@ def main():
     current_execute_task_list = []
     while task_list:
         # 从任务列表中去取任务，当当前任务的任务列表中的任务数量小于3时，就从task_list中取任务，放到当前任务列表中
+        # 这里是len(current_execute_task_list) !=m，不是current_execute_task_list ！m
         while len(current_execute_task_list) != m:
             if not task_list:
                 break
