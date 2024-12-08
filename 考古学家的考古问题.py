@@ -1,5 +1,6 @@
 # start 2024年12月8日 16:17分开始
-# end
+# end 16:47
+# 用时半小时
 def dfs(current_content, n, content, visited):
     global res
     if len(current_content) == n:
