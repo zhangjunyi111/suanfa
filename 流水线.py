@@ -44,7 +44,7 @@ def main():
 
     # 当while循环执行完毕后，意味着task_list为空，处理current_execute_task_list中的任务
 
-    cost_time += max(current_execute_task_list)
+    cost_time += max(current_execute_task_list ) if current_execute_task_list   else 0
 
     print(cost_time)
 
