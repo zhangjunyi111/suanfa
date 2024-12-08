@@ -37,8 +37,9 @@ def main():
             length = len(legal_expression)
             index = i
 
+
     #  对表达式进行计算
-    expression = legal_expression[index]
+    expression = legal_expression[index] if index != -1 else '0'
     #先计算乘法
     # 再计算加减法
     # print(expression)
