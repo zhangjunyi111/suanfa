@@ -11,6 +11,7 @@ def distribute(num,have_distributed,method,m):
     global  distribute_method
     if have_distributed == m:
         distribute_method.append(method)
+        return
 
     for i in range(1,num):
         method.append(i)
