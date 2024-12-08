@@ -6,6 +6,16 @@
 # start 17:00
 # end
 
+def contain_all_number(i, j, matrix, numbers_dict):
+    for row in matrix:
+        for index in range(i, j):
+            if matrix[row][index] in numbers_dict:
+                numbers_dict[matrix[row][index]] -= 1
+                if numbers_dict[matrix[row][index]] == 0:
+                    del numbers_dict[matrix[row][index]]
+    if not numbers_dict:
+        return True
+
 
 def main():
     #  接收矩阵的行数和列数
@@ -34,11 +44,9 @@ def main():
     left = 0
     right = m
 
-    for i in range(n):
-        for j in range(left, right):
-            if matrix[i][j] in numbers_dict:
-                numbers_dict[matrix[i][j]] -= 1
-                if numbers_dict[matrix[i][j]] == 0:
-                    del numbers_dict[matrix[i][j]]
-    if not numbers_dict:
-        min_width = min(min_width, right - left + 1)
+    for left in range(m):
+        for right in range(left, m):
+            if contain_all_number(left, right+1, matrix, numbers_dict):
+                min_width = min(min_width, right - left + 1)
+
+    print(min_width)
