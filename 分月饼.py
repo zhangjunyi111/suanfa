@@ -15,8 +15,10 @@ def distribute(num, have_distributed, method, m, n):
 
     for i in range(1, num):
         have_distributed += 1
+        method.append(i)
         if have_distributed == m:
             method.append(n - sum(method))
+
         distribute(num - i, have_distributed, method, m, n)
         have_distributed -= 1
         method.pop()
