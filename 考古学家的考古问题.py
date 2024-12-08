@@ -19,6 +19,7 @@ res = []
 
 
 def main():
+    global res
     # 接收数量
     n = int(input().strip())
 
@@ -29,6 +30,11 @@ def main():
     current_content = []
     visited = [False] * n
     dfs(current_content, n, content, visited)
-
+    # print(res)
+    s = lambda x: ''.join(x)
+    res =  list(map(s,res))
+    res.sort()
+    for x in res:
+        print(x)
 
 main()
