@@ -13,7 +13,7 @@ def main():
 
     # 定义合法表达式的符号和数字列表
     legal_char_list = ['+', "-", "*"]
-    legal_number = list(map(int, list(range(9))))
+    legal_number = list(map(str, list(range(9))))
 
     # 定义合法的表达式列表
     legal_expression = []
