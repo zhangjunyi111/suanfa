@@ -29,9 +29,11 @@ def main():
             while j < len(expression) and  expression[j] in legal_char_list or expression[ j] in legal_number:
                     j += 1
                     # 更新i的值为j,从j开始继续找到第一个合法的表达式或者字符
-            i = j
             # 当j的值不满足合法表数字或者符号的时候，将i到j的区间的内容获取到，添加到合法表达式的结果中，等待进一步的处理
             legal_expression.append([expression[i:j]])
+            i = j
+
+
 
 
         # 不满足条件的话，i的值要+1，移动i指针
