@@ -36,8 +36,37 @@ def main():
     # 列出所有的分配方案
     # 尝试从n个月饼中分配1-n个
     distribute(n, have_distributed, method, m, n)
-    print(distribute_method)
+    # print(distribute_method)
     # 排除不符合要求的
+
+    distribute_method.sort(key=lambda x:x[0])
+    method_diff_list  = []
+    for method in distribute_method:
+        method_diff = []
+        for i in range(1,m):
+            method_diff.append(method[i]- method[i-1])
+        method_diff_list.append(method_diff)
+    # print(method_diff_list)
+
+    ans_index = []
+
+    for i in range(len(method_diff_list)):
+        diff_max_3 = True
+        for x in method_diff_list[i]:
+            if x >3:
+                diff_max_3 = False
+
+        ans_index.append(i) if diff_max_3 else ''
+
+    # for index in ans_index:
+        # print(' '.join(list(map(str,distribute_method[index]))))
+    print(len(ans_index))
+
+
+
+
+
+
 
 
 main()
