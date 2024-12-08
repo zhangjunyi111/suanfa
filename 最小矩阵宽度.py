@@ -7,7 +7,7 @@
 # end
 
 def contain_all_number(i, j, matrix, numbers_dict):
-    for row in matrix:
+    for row in range(len(matrix)):
         for index in range(i, j):
             if matrix[row][index] in numbers_dict:
                 numbers_dict[matrix[row][index]] -= 1
@@ -31,7 +31,7 @@ def main():
     numbers = list(map(int, input().split()))
     # 将数字存储到字典
     numbers_dict = {}
-    for number in numbers_dict:
+    for number in numbers:
         if number not in numbers_dict:
             numbers_dict[number] = 0
         numbers_dict[number] += 1
@@ -50,3 +50,6 @@ def main():
                 min_width = min(min_width, right - left + 1)
 
     print(min_width)
+
+
+main()
