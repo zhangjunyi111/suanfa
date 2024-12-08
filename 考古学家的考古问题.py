@@ -33,8 +33,10 @@ def main():
     # print(res)
     s = lambda x: ''.join(x)
     res =  list(map(s,res))
+    res = list(set(res))
     res.sort()
     for x in res:
         print(x)
+
 
 main()
