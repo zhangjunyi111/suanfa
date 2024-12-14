@@ -1,5 +1,5 @@
 # 开始时间18:06
-#
+# 完成时间18:49
 
 # 最远足迹
 import re
@@ -19,13 +19,15 @@ def main():
     y_max = 0
     max_distance = 0
     for coordinate in matchList:
-        coordinate = list(map(int,coordinate.strip('(').strip(')').split(',')))
+        coordinate = list(map(int, coordinate.strip('(').strip(')').split(',')))
         # print(coordinate)
         x, y = coordinate
-        distance = pow(x, 2) + pow(y, 2)
-        if distance > max_distance:
-            x_max = x
-            y_max = y
+        # 增加对x和y的校验
+        if 0 < x < 1000 and 0 < y < 1000:
+            distance = pow(x, 2) + pow(y, 2)
+            if distance > max_distance:
+                x_max = x
+                y_max = y
 
     # 输出结果
 
