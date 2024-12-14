@@ -29,14 +29,16 @@ def main():
             commad = ''
 
         # 如果当前ch是_,并commad中不包含双引号，那么将commad添加到List中
-        elif ch == '_' and '"' not in commad:
+        elif ch == '_' and '"' not in commad and commad:
             commadList.append(commad)
+            commad = ''
 
         # 如果当前ch是最后一个字符,将当前ch加入commad,然后加入到commadList
 
         elif i == len(s) - 1:
             commad += ch
             commadList.append(commad)
+            commad = ''
 
         else:
             commad += ch
@@ -44,8 +46,20 @@ def main():
     if K < 0 or K > len(commadList):
         print('ERROR')
         sys.exit()
-
+    # print('commadList', commadList)
     commadList[K] = '******'
+    res = ''
+    for i in range(len(commadList)):
+        commad_new = commadList[i].strip('_')
+        if i == 0:
+            res += commad_new
+            continue
+        if commad_new == '':
+            continue
+        else:
+            res += '_' + commad_new
+
+    print(res)
 
 
-
+main()
