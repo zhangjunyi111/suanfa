@@ -12,7 +12,7 @@ def main():
     # 提取坐标
     pattern = re.compile(r'\(.*?\)')
     matchList = pattern.findall(record_str)
-    print(matchList)
+    # print(matchList)
 
     # 计算距离的平方，初始化一个最大值，和最大值的坐标
     x_max = 0
@@ -20,7 +20,7 @@ def main():
     max_distance = 0
     for coordinate in matchList:
         coordinate = list(map(int,coordinate.strip('(').strip(')').split(',')))
-        print(coordinate)
+        # print(coordinate)
         x, y = coordinate
         distance = pow(x, 2) + pow(y, 2)
         if distance > max_distance:
