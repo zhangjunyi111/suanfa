@@ -4,7 +4,7 @@
 # 3
 # 1 2 3
 # start 17:00
-# end
+# end   18:05
 
 def contain_all_number(i, j, matrix, numbers_dict):
     for row in range(len(matrix)):
@@ -55,7 +55,7 @@ def main():
                 min_left = left
                 min_right = right
 
-    print(min_width, min_left, min_right)
+    print(min_width)
 
 
 main()
