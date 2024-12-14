@@ -29,7 +29,7 @@ def main():
 
     # 输出结果
 
-    print(f'({x_max},{y_max}')
+    print(f"({x_max},{y_max})")
 
 
 main()
