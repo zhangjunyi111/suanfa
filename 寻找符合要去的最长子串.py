@@ -54,6 +54,7 @@ def main():
             else:
                 char_index.append(right)
                 right += 1
+    max_length = max(max_length,right-left)
     print(max_length)
 
 
