@@ -8,7 +8,7 @@ def main():
 
     # 获取事件数量n
     n = int(input())
-    for i in range(1, n):
+    for i in range( 6):
         customer_priority[i] = []
     # 事件分为2种类型，一种是添加到客户优先级字典，一种是获取当前优先级最高的客户ID,通过第一个标志位区分操作类型
     # 通过第二个标志位获取客户编号，通过第三个标志位确定优先级
@@ -24,7 +24,7 @@ def main():
         elif option_type == 'p':
             for i in range(1, len(customer_priority.keys())):
                 if customer_priority[i]:
-                    print(customer_priority[i].pop())
+                    print(customer_priority[i].pop(0))
                     break
 
 
