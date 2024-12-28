@@ -24,7 +24,7 @@ def main():
         elif option_type == 'p':
             for i in range(1, len(customer_priority.keys())):
                 if customer_priority[i]:
-                    print(customer_priority[i].pop())
+                    print(customer_priority[i].pop(0))
                     break
 
 
