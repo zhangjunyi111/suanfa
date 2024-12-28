@@ -1,6 +1,20 @@
 # 求满足条件的最长子序列
 #  只能包含一个字母，其他的必须是数字
 
+# aBB9
+
+def include_number(s):
+    '''
+    判断字符串s中是否包含数字
+    :param s:
+    :return:
+    '''
+    for i in range(len(s)):
+        if s[i].isdigit():
+            return True
+    return False
+
+
 def main():
     s = input()
     # 初始化一个字母长度
@@ -16,16 +30,23 @@ def main():
     while right < len(s):
         char = s[right]
         if char.isalpha():
-            if count == 1:
-                max_length = max(max_length, right - left)
-                left = postion + 1
-                postion = right
-                right += 1
-            # 如果count的长度为0，更新count的长度，那么可以继续移动右指针
-            else:
+            if count == 0:
+                # 如果count的长度为0，更新count的长度，那么可以继续移动右指针
                 position = right
                 count += 1
                 right += 1
+
+
+            else:
+                # 此处的逻辑需要优化
+                if include_number(s[left:right]):
+                    max_length = max(max_length, right - left)
+
+                #     此处的逻辑需要优化一下，如何更新右指针的位置和position的位置00067B9
+                right = position + 1
+                left = right
+                postion = right
+
         # 如果是数字，直接移动右指针
         elif char.isdigit():
             right += 1
