@@ -25,7 +25,7 @@ def main():
             for i in range(1, len(customer_priority.keys())):
                 if customer_priority[i]:
                     print(customer_priority[i].pop())
-                break
+                    break
 
 
 if __name__ == '__main__':
