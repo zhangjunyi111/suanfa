@@ -40,17 +40,17 @@ def main():
             else:
                 # 此处的逻辑需要优化
                 if include_number(s[left:right]):
-                    max_length = max(max_length, right - left)
+                    max_length = max(max_length, right - left+1)
 
                 #     此处的逻辑需要优化一下，如何更新右指针的位置和position的位置00067B9
                 right = position + 1
                 left = right
-                postion = right
+                position = right
 
         # 如果是数字，直接移动右指针
         elif char.isdigit():
             right += 1
-    max_length = max(max_length, right - left)
+    max_length = max(max_length, right - left+1)
     print(max_length)
 
 
