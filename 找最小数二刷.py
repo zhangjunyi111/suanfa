@@ -21,7 +21,7 @@ def main():
             N-=1
         stack.append(num[i])
 
-    if N :
+    while N :
         stack.pop()
         N -= 1
 
