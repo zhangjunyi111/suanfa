@@ -15,13 +15,14 @@ def main():
     for i in range(N):
         positions.append(100 * i)
 
-    for pos in positions:
-        for radius in radiuses:
-            if pos == 0:
-                length = [0, pos + radius]
-            else:
-                length = [pos - radius, pos + radius]
-            ans.append(length)
+    # 遍历位置这里使用索引进行遍历，不能使用for循环进行遍历
+    for i in range(len(positions)):
+        if i == 0:
+            length = [0, radiuses[i]]
+        else:
+            length = [positions[i] - radiuses[i], positions[i] +
+                      radiuses[i]]
+        ans.append(length)
 
     # [20,30] [40,50] [45,55]
 
@@ -33,5 +34,6 @@ def main():
         right = ans[i][1]
 
     print(res)
+
 
 main()
