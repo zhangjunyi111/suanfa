@@ -1,12 +1,11 @@
 def find_longest_substring_length(s):
     n = len(s)
     max_length = 0
-
     for i in range(n):
+        l_count = 0
+        x_count = 0
+        o_count = 0
         for j in range(n):
-            l_count = 0
-            x_count = 0
-            o_count = 0
             index = (i + j) % n
             ch = s[index]
             if ch == 'l':
@@ -18,8 +17,8 @@ def find_longest_substring_length(s):
 
             if l_count % 2 == 0 and o_count % 2 == 0 and x_count % 2 == 0:
                 max_length = max(max_length, j + 1)
-
-            return max_length
+    # return的位置缩进要和for对齐
+    return max_length
 
 
 if __name__ == "__main__":
