@@ -16,7 +16,10 @@ def has_cycle(graph):
     visited = {node: UNVISITED for node in graph}
     for node in graph:
         if visited[node] == UNVISITED:
-            detect_cycle(graph, node, visited)
+            if detect_cycle(graph, node, visited):
+                return False
+    return True
+
 
 
 # 判断是否有环的工具
@@ -48,7 +51,8 @@ def find_start_and_end_nodes(edges,graph):
         nodes.add(start)
         nodes.add(end)
 
-    has_cycle(graph)
+    if has_cycle(graph):
+        return [-1]
     start_node = -1
     end_node = []
     for node in nodes:
