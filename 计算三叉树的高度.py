@@ -13,14 +13,14 @@ class Ternary_Search_Trie:
     def insert_value(self,root,val):
         if not root:
             return TreeNode(val)
-        if val < root.val -500:
-            self.insert_value(root.left,val)
+        if val < root.val - 500:
+            root.left = self.insert_value(root.left, val)
 
-        elif  root.val -500 < val < root.val +500:
-            self.insert_value(root.mid,val)
+        elif  root.val - 500 <= val <= root.val + 500:
+            root.mid = self.insert_value(root.mid,val)
 
-        elif val > root.val +500:
-            self.insert_value(root.right,val)
+        elif val > root.val + 500:
+            root.right = self.insert_value(root.right, val)
 
         return root
 
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     numbers = list(map(int,input().split()))
     root = None
     for num in numbers:
-        tree.insert_value(root,num)
+        root = tree.insert_value(root,num)
 
