@@ -2,17 +2,19 @@
 import sys
 
 
-def dfs(matrix, i, j):
+def dfs(matrix, i, j,visited):
     range = 1
     # 初始化一个方向列表
     directions = [(0, -1), (0, 1), (1, 0), (-1, 0)]
     pass
     for dir in directions:
         x = i + dir[0]
-        y = i + dir[1]
-        if 0 <= x < m and 0 <= y < n and matrix[m][n] <= 1:
-            range += dfs(matrix, x, y)
-
+        y = j + dir[1]
+        if 0 <= x < m and 0 <= y < n and matrix[x][y] <= 1 and not visited[
+            x][y]:
+            visited[x][y] = True
+            range += dfs(matrix, x, y,visited)
+            visited[x][y] = False
     return range
 
 
@@ -34,5 +36,8 @@ for line in sys.stdin:
 
 for i in range(m):
     for j in range(n):
-        activite_range = dfs(matrix, i, j)
+        visited =[[False for _ in range(n)] for _ in range(m)]
+        visited[i][j] = True
+        activite_range = dfs(matrix, i, j,visited)
+        visited[i][j] = False
         max_range = max(activite_range, max_range)
