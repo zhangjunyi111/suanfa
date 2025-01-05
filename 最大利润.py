@@ -8,7 +8,7 @@ max_limits = list(map(int, input().split()))
 prices = []
 
 for i in range(goods_numbers):
-    prices.append(list(map(int, input())))
+    prices.append(list(map(int, input().split())))
 
 # 遍历每件商品，计算哪天盈利了，加入到利润里面去，然后在最大的商品数量乘积
 total_profit = 0
