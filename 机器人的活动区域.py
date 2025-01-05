@@ -28,7 +28,7 @@ for line in sys.stdin:
         m, n = map(int, line.split())
 
     else:
-        matrix.append(map(int, line.split()))
+        matrix.append(list(map(int, line.split())))
         if len(matrix) == m:
             break
 
