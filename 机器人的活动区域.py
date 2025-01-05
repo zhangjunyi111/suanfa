@@ -10,8 +10,8 @@ def dfs(matrix, i, j,visited):
     for dir in directions:
         x = i + dir[0]
         y = j + dir[1]
-        if 0 <= x < m and 0 <= y < n and matrix[x][y] <= 1 and not visited[
-            x][y]:
+        if 0 <= x < m and 0 <= y < n and abs(matrix[x][y]-matrix[i][j]) <= 1 \
+                and not visited[x][y]:
             visited[x][y] = True
             range += dfs(matrix, x, y,visited)
             visited[x][y] = False
@@ -28,6 +28,7 @@ for line in sys.stdin:
         m, n = map(int, line.split())
 
     else:
+        # 不能直接添加map对象
         matrix.append(list(map(int, line.split())))
         if len(matrix) == m:
             break
@@ -41,3 +42,5 @@ for i in range(m):
         activite_range = dfs(matrix, i, j,visited)
         visited[i][j] = False
         max_range = max(activite_range, max_range)
+
+print(max_range)
