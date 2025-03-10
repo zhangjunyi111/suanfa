@@ -6,9 +6,6 @@ class Edge:
         self.pre = pre
 
 
-parent = [i for i in range(N + 1)]
-
-
 def find(x):
     if parent[x] != x:
         parent[x] = find(parent[x])
@@ -16,13 +13,17 @@ def find(x):
 
 def union(x, y):
     if find(x) != find(y):
-        parent[find(x)] = find(y)
+        root_x = find(x)
+        root_y = find(y)
+        if root_x != root_y:
+            parent[root_x] = root_y
 
 
 if __name__ == '__main__':
     N = int(input())
     M = int(input())
     edges = []
+    parent = [i for i in range(N + 1)]
     for _ in range(M):
         x, y, z, p = map(int, input().split())
         edges.append(Edge(x, y, z, p))
