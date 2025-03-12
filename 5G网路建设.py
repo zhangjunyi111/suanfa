@@ -12,7 +12,6 @@ def find(x):
 
 
 def union(x, y):
-    if find(x) != find(y):
         root_x = find(x)
         root_y = find(y)
         if root_x != root_y:
