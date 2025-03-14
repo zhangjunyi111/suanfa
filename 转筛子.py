@@ -1,5 +1,6 @@
 # 接收操作序列
-operate_list = input().split()
+# 字符串不用split函数
+operate_list = list(input())
 
 # 初始化state,左右前后上下
 state = [0, 1, 2, 3, 4, 5, 6]
